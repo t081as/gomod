@@ -19,6 +19,11 @@ func TestNewFromDir(t *testing.T) {
 		t.Fatalf("Expected go version 1.14, got %s", s)
 	}
 
+	// Toolchain
+	if s := mod.Toolchain; s != "go1.21" {
+		t.Fatalf("Expected toolchain go1.21, got %s", s)
+	}
+
 	// Require
 	if l := len(mod.Require); l != 4 {
 		t.Fatalf("Expected 4 module requirements, got %d", l)

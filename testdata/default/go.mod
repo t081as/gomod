@@ -1,6 +1,7 @@
 module example.com/mymodule
 
 go 1.14
+toolchain go1.21
 
 require (
     example.com/othermodule v1.2.3
