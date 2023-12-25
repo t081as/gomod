@@ -18,6 +18,9 @@ type GoMod struct {
 	// A go directive indicates that a module was written assuming the semantics of a given version of Go.
 	Go string `json:"Go"`
 
+	// A toolchain directive declares a suggested Go toolchain to use with a module.
+	Toolchain string `json:"Toolchain"`
+
 	// A require directive declares a minimum required version of a given module dependency.
 	Require []Require `json:"Require"`
 
