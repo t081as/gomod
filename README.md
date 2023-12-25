@@ -21,8 +21,50 @@ func main() {
 
 	fmt.Println("Module path:", mod.Module.Path)
 	fmt.Println("Go version:", mod.Go)
-}
+	fmt.Println()
 
+	fmt.Println("Required:")
+	for _, r := range mod.Require {
+		if !r.Indirect {
+			fmt.Printf("%s@%s\n", r.Path, r.Version)
+		}
+	}
+	fmt.Println()
+
+	fmt.Println("Required (indirect):")
+	for _, r := range mod.Require {
+		if r.Indirect {
+			fmt.Printf("%s@%s\n", r.Path, r.Version)
+		}
+	}
+	fmt.Println()
+
+	fmt.Println("Replaced:")
+	for _, r := range mod.Replace {
+		if r.Old.Version != "" {
+			fmt.Printf("%s@%s -> %s@%s\n", r.Old.Path, r.Old.Version, r.New.Path, r.New.Version)
+		} else {
+			fmt.Printf("%s -> %s\n", r.Old.Path, r.New.Path)
+		}
+	}
+	fmt.Println()
+
+	fmt.Println("Excluded:")
+	for _, e := range mod.Exclude {
+		fmt.Printf("%s@%s\n", e.Path, e.Version)
+	}
+	fmt.Println()
+
+	fmt.Println("Retracted:")
+	for _, r := range mod.Retract {
+		if r.Low == r.High {
+			fmt.Printf("%s: %s\n", r.Low, r.Rationale)
+		} else {
+			fmt.Printf("[%s, %s]: %s\n", r.Low, r.High, r.Rationale)
+		}
+	}
+	fmt.Println()
+}
 ```
 
 ## Contributing
