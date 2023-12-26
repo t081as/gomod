@@ -121,8 +121,16 @@ func expectRetract(r []Rectract, high, low, rationale string) bool {
 	return false
 }
 
-func TestNewFromDirInvalid(t *testing.T) {
+func TestNewFromDirNotExist(t *testing.T) {
 	_, err := NewFromDir("/i-do-not-exist")
+
+	if err == nil {
+		t.Error("Expected error, got none")
+	}
+}
+
+func TestNewFromDirInvalid(t *testing.T) {
+	_, err := NewFromDir("\\/")
 
 	if err == nil {
 		t.Error("Expected error, got none")
