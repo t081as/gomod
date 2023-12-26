@@ -1,5 +1,13 @@
 // Package gomod provides a parser for go.mod files according to the official specification.
 // Since this package heavily relies on the `go` command, a go installation is required for this module to work.
+//
+//	mod, err := gomod.NewFromDir("./testdata/default/")
+//	if err != nil {
+//		return
+//	}
+//
+//	fmt.Println("Module path:", mod.Module.Path)
+//	fmt.Println("Go version:", mod.Go)
 package gomod
 
 import (
