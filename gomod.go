@@ -1,3 +1,7 @@
+// Copyright 2023-2024 Tobias Koch. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package gomod provides a parser for go.mod files according to the official specification.
 // Since this package heavily relies on the `go` command, a go installation is required for this module to work.
 //
